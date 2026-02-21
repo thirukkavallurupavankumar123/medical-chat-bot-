@@ -3,6 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Sensitive files - API keys
+.env
+research/trials.ipynb
+
 # C extensions
 *.so
 
@@ -207,3 +211,4 @@ marimo/_lsp/
 __marimo__/
 
 model/llama-2-7b-chat.ggmlv3.q4_0.bin
+research/trials.ipynb
