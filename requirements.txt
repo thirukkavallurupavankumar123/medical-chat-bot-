@@ -7,6 +7,7 @@ langchain-core
 langchain-community
 langchain-classic
 langchain-groq
+langchain-pinecone
 
 pinecone
 huggingface-hub

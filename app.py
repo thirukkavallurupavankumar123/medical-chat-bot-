@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from src.helper import download_hugging_face_embeddings
-from langchain_community.vectorstores import Pinecone as PineconeVectorStore
+from langchain_pinecone import PineconeVectorStore
 from langchain_groq import ChatGroq
 from langchain_classic.chains.retrieval import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
@@ -19,12 +19,7 @@ embeddings=download_hugging_face_embeddings()
 
 index_name="medical-bot"
 
-# Initialize Pinecone
-from pinecone import Pinecone
-pc = Pinecone(api_key=PINECONE_API_KEY)
-index = pc.Index(index_name)
-
-docsearch=PineconeVectorStore(index=index, embedding=embeddings, text_key="text")
+docsearch=PineconeVectorStore.from_existing_index(index_name=index_name, embedding=embeddings)
 
 retriever=docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
 
