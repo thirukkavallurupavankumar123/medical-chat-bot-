@@ -9,7 +9,6 @@ langchain-classic
 langchain-groq
 
 pinecone
-sentence-transformers
 huggingface-hub
 
 -e .
