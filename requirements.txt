@@ -11,5 +11,6 @@ langchain-pinecone
 
 pinecone
 huggingface-hub
+numpy
 
 -e .
