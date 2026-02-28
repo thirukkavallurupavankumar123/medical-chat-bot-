@@ -45,13 +45,15 @@ def index():
 
 @app.route("/get", methods=["GET","POST"])
 def chat():
-    msg=request.form["msg"]
-    input=msg
-    print(input)
-    response=rag_chain.invoke({"input":msg})
-    print("response: ",response["answer"])
-
-    return str(response["answer"])
+    try:
+        msg=request.form["msg"]
+        print(f"User input: {msg}")
+        response=rag_chain.invoke({"input":msg})
+        print("response: ",response["answer"])
+        return str(response["answer"])
+    except Exception as e:
+        print(f"Error in /get: {e}")
+        return str(f"Sorry, an error occurred: {e}"), 500
 
 
 

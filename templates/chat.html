@@ -85,6 +85,11 @@
                         
                         // Auto-scroll to bottom
                         chatBody.scrollTop = chatBody.scrollHeight;
+                    }).fail(function(xhr) {
+                        var errorMsg = xhr.responseText || "Server error. Please try again.";
+                        var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://cdn-icons-png.flaticon.com/512/387/387569.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer" style="background:#ff4444;color:white;">⚠️ ' + errorMsg + '<span class="msg_time">' + str_time + '</span></div></div>';
+                        $("#messageFormeight").append($.parseHTML(botHtml));
+                        chatBody.scrollTop = chatBody.scrollHeight;
                     });
                 });
             });
