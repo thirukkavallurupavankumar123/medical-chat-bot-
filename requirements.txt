@@ -8,7 +8,7 @@ langchain-community
 langchain-classic
 langchain-groq
 
-pinecone-client
+pinecone
 sentence-transformers
 huggingface-hub
 
